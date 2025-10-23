@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import Header from './components/Header';
+import Dashboard from './components/Dashboard';
+import CADIncidents from './components/CADIncidents';
+import NFIRSReports from './components/NFIRSReports';
+import Apparatus from './components/Apparatus';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentView, setCurrentView] = useState('dashboard');
+
+  const renderView = () => {
+    switch (currentView) {
+      case 'dashboard':
+        return <Dashboard setCurrentView={setCurrentView} />;
+      case 'cad':
+        return <CADIncidents />;
+      case 'nfirs':
+        return <NFIRSReports />;
+      case 'apparatus':
+        return <Apparatus />;
+      default:
+        return <Dashboard setCurrentView={setCurrentView} />;
+    }
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="app">
+      <Header currentView={currentView} setCurrentView={setCurrentView} />
+      <main className="main-content">
+        {renderView()}
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
