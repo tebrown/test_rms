@@ -1,36 +1,145 @@
-# React + Vite
+# Fire RMS - Records Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive demonstration of a Fire Department Records Management System with NFIRS reporting, CAD integration, and apparatus management.
 
-Currently, two official plugins are available:
+## 🔥 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**https://tebrown.github.io/test_rms/**
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📊 Dashboard
+- Real-time statistics (active incidents, personnel, apparatus)
+- Recent CAD incidents overview
+- NFIRS reports summary
+- Apparatus status tracking
+- Quick action buttons
 
-## Expanding the ESLint configuration
+### 📝 NFIRS Reports
+- Complete NFIRS Basic Incident Report form
+- Import from CAD functionality (auto-fills form)
+- All standard NFIRS fields including:
+  - Basic incident information
+  - Location details
+  - Time information (alarm, arrival, controlled, cleared)
+  - Fire-specific details
+  - Casualties tracking
+  - Resources deployed
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🚨 CAD Incidents
+- Computer-Aided Dispatch integration
+- Filter by status (All, In Progress, Closed)
+- Detailed incident views with:
+  - Full incident information
+  - Location details
+  - Responding units
+  - Dispatch notes
 
-## Deployment to GitHub Pages
+### 🚒 Apparatus Management
+- Fleet overview with statistics
+- Status tracking (Available, On Scene, Out of Service)
+- Detailed unit information including:
+  - Equipment specifications
+  - Maintenance status
+  - Personnel assignments
 
-This project is configured for deployment to GitHub Pages at https://tebrown.github.io/test_rms/.
+## Technology Stack
+
+- **React** - UI framework
+- **Vite** - Build tool
+- **CSS** - Custom dark mode theme
+- **Mock Data** - No backend required
+
+## Getting Started
 
 ### Prerequisites
-- GitHub account and repository: https://github.com/tebrown/test_rms
-- Git authentication setup (HTTPS with Personal Access Token or SSH keys) to avoid permission errors.
+- Node.js (v14 or higher)
+- npm
 
-### Build and Deploy
-1. Build the project: `npm run build` (outputs to `dist/` folder with base path `/test_rms/`).
-2. Deploy: `npm run deploy` (pushes `dist/` to the `gh-pages` branch using gh-pages package).
+### Installation
 
-For local preview: `npm run preview`.
+```bash
+# Clone the repository
+git clone https://github.com/tebrown/test_rms.git
 
-If you encounter permission errors:
-- **HTTPS**: Use a Personal Access Token (PAT) instead of password: `git remote set-url origin https://YOUR_USERNAME:YOUR_TOKEN@github.com/tebrown/test_rms.git`.
-- **SSH**: Switch to SSH remote: `git remote set-url origin git@github.com:tebrown/test_rms.git` and ensure SSH keys are added to GitHub.
+# Navigate to project directory
+cd test_rms
 
-Ensure the repository settings enable GitHub Pages from the `gh-pages` branch.
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The app will be available at `http://localhost:5173/test_rms/`
+
+## Build & Deploy
+
+### Build for production
+```bash
+npm run build
+```
+
+### Deploy to GitHub Pages
+```bash
+npm run deploy
+```
+
+## GitHub Pages Setup
+
+If the site isn't showing at https://tebrown.github.io/test_rms/, ensure GitHub Pages is configured:
+
+1. Go to your repository on GitHub
+2. Click **Settings**
+3. Click **Pages** in the left sidebar
+4. Under "Source", select:
+   - Branch: `gh-pages`
+   - Folder: `/ (root)`
+5. Click **Save**
+6. Wait 1-2 minutes for deployment
+
+The site should then be live at: https://tebrown.github.io/test_rms/
+
+## Features Showcase
+
+### Dark Mode Theme 🌙
+Professional dark color scheme with high contrast for readability
+
+### Mock Data 📦
+All data is demonstration data - no database required
+- 4 CAD incidents
+- 2 NFIRS reports
+- 7 apparatus units
+- Department information
+
+### Responsive Design 📱
+Works on desktop, tablet, and mobile devices
+
+## Project Structure
+
+```
+test_rms/
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx          # Navigation
+│   │   ├── Dashboard.jsx       # Main dashboard
+│   │   ├── CADIncidents.jsx    # CAD system
+│   │   ├── NFIRSReports.jsx    # NFIRS forms
+│   │   └── Apparatus.jsx       # Fleet management
+│   ├── data/
+│   │   └── mockData.js         # All demo data
+│   ├── App.jsx                 # Main app component
+│   └── index.css               # Global styles
+├── index.html
+├── vite.config.js
+└── package.json
+```
+
+## License
+
+MIT
+
+## Demo Notice
+
+This is a demonstration site with mock data. It does not connect to any real systems or databases.
